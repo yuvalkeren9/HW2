@@ -14,7 +14,15 @@ Player::Player(const string& name, const int maxHP, const int force) :
     m_coins(0),
     m_level(1),
     m_force(force)
-{}
+{
+    if (maxHP < 0){
+        this->m_maxHP = DEFAULT_MAX_HP;
+        this->m_HP = DEFAULT_MAX_HP;
+    }
+    if (force < 0){
+        this->m_force = DEFAULT_FORCE;
+    }
+}
 
 void Player::printInfo() const {
     const char* nameSent = m_name.c_str();     //converting from string type to char* type
