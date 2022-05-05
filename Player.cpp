@@ -35,12 +35,18 @@ int Player::getLevel() const{
 
 Player& Player::buff(const int addedForce){
     assert(addedForce >= 0);
+    if (addedForce < 0){
+        return *this;
+    }
     this->m_force += addedForce;
     return *this;
 }
 
 Player& Player::heal(const int addedHP){
     assert(addedHP >=0);
+    if (addedHP < 0){
+        return *this;
+    }
     if(this->m_HP + addedHP >= this->m_maxHP){
         this->m_HP = this->m_maxHP;
     }
@@ -52,6 +58,9 @@ Player& Player::heal(const int addedHP){
 
 Player& Player::damage(const int damageInflicted){
     assert(damageInflicted >= 0);
+    if (damageInflicted < 0){
+        return *this;
+    }
     if (this->m_HP - damageInflicted <= 0){
         this->m_HP =0;
     }
@@ -67,11 +76,17 @@ bool Player::isKnockedOut() const{
 
 Player& Player::addCoins(const int numOfCoins){
     assert(numOfCoins);
+    if (numOfCoins < 0){
+        return *this;
+    }
     this->m_coins += numOfCoins;
     return *this;
 }
 bool Player::pay(const int price){
     assert (price >= 0);
+    if (price <= 0){
+        return true;
+    }
     if (this->m_coins < price){
         return false;
     }
