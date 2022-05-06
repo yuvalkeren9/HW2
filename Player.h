@@ -1,8 +1,15 @@
+//
+// Created by eladm on 02/05/2022.
+//
 
 #ifndef HW2_PLAYER_H
 #define HW2_PLAYER_H
+
+
 #include <iostream>
 #include "utilities.h"
+using std::cout;
+using std::endl;
 using std::string;
 
 
