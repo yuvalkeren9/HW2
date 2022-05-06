@@ -5,6 +5,7 @@
 #include "Player.h"
 #include <iostream>
 #include <cassert>
+#include "Player.h"
 
 using std::cout;
 using std::endl;
@@ -42,7 +43,6 @@ void Card::applyEncounter(Player& player) const {
             }
             break;
         }
-
         case (CardType::Treasure): {
             player.addCoins(this->m_stats.loot);
             break;
@@ -51,7 +51,7 @@ void Card::applyEncounter(Player& player) const {
             break;
         }
     }
-    }
+}
 
 void Card::printInfo() const {
     switch (this->m_effect) {
@@ -78,26 +78,6 @@ void Card::printInfo() const {
             break;
         }
     }
-}
-
-int main(){
-    CardStats stats(1000,40,2,50,4,5);
-    Card cardHEAL(CardType::Heal,stats);
-    Card DEFULTcard;
-    Card cardATTACK(CardType::Battle,stats);
-    Player Anna_zack("annazack",100,600);
-    Player Noa_kirel("noakirel",100,700);
-    Anna_zack.printInfo();
-    Noa_kirel.printInfo();
-    cardATTACK.applyEncounter(Noa_kirel);
-    Noa_kirel.printInfo();
-    Noa_kirel.addCoins(3);
-    cardHEAL.applyEncounter(Noa_kirel);
-    Noa_kirel.printInfo();
-    DEFULTcard.printInfo();
-
-
-
 }
 
 

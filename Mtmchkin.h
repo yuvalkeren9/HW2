@@ -40,7 +40,6 @@ public:
      *      void
     */
     void playNextCard();
-    void playNextCard(Player& player);
 
     /*
      *  Check if the game ended:
@@ -63,14 +62,14 @@ public:
     //TODO: complete the Mtmchkin class.
 
 private:
-    const string  m_playerName;
-    int m_numOfCards;
+    const string m_playerName;
     const Card  *m_cardArray;
+    int m_numOfCards;
     GameStatus m_gameStatus;
     int m_CurrentCardIndex;
     Player m_player;
-   const Card& getPulledCard();
-   void updateGameStatus();
+    void updateCardIndex();
+    void updateGameStatus();
 
 
 };

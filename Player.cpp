@@ -12,11 +12,11 @@ using std::string;
 
 Player::Player(const string& name, const int maxHP, const int force) :
     m_name(name),
+    m_level(1),
+    m_force(force),
     m_maxHP(maxHP),
     m_HP(maxHP),
-    m_coins(0),
-    m_level(1),
-    m_force(force)
+    m_coins(0)
 {
     if (maxHP < 0){
         this->m_maxHP = DEFAULT_MAX_HP;

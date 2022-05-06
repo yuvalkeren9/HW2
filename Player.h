@@ -20,7 +20,7 @@ const int DEFAULT_FORCE = 5;
 /** a class that represents a player type. The class hold the player's name, his current level, current force, his max HP, current player's HP, and
  * the amount of coins he has */
 class Player {
-    string m_name;   //Character's name           //ELAD ,SHOULD WE PUT HERE A CONST??
+    string m_name;   //Character's name
     int m_level;     //Player's level
     int m_force;     //Player's force
     int m_maxHP;     //Player's maximum HP allowed
