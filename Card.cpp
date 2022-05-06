@@ -2,6 +2,7 @@
 // Created by eladm on 03/05/2022.
 //
 #include "Card.h"
+#include "Player.h"
 #include <iostream>
 #include <cassert>
 
@@ -78,6 +79,27 @@ void Card::printInfo() const {
         }
     }
 }
+
+int main(){
+    CardStats stats(1000,40,2,50,4,5);
+    Card cardHEAL(CardType::Heal,stats);
+    Card DEFULTcard;
+    Card cardATTACK(CardType::Battle,stats);
+    Player Anna_zack("annazack",100,600);
+    Player Noa_kirel("noakirel",100,700);
+    Anna_zack.printInfo();
+    Noa_kirel.printInfo();
+    cardATTACK.applyEncounter(Noa_kirel);
+    Noa_kirel.printInfo();
+    Noa_kirel.addCoins(3);
+    cardHEAL.applyEncounter(Noa_kirel);
+    Noa_kirel.printInfo();
+    DEFULTcard.printInfo();
+
+
+
+}
+
 
 
 

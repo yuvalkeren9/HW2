@@ -6,6 +6,9 @@
 #define EX2_GAME_H
 #include "Card.h"
 #include <iostream>
+using std::cout;
+using std::endl;
+using std::string;
 
 /*
  * GameStatus:
@@ -27,7 +30,7 @@ public:
      * @result
      *      An instance of Mtmchkin
     */
-    Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards);
+    Mtmchkin(const string& playerName, const Card* cardsArray, int numOfCards);
 
 
     /*
@@ -37,7 +40,7 @@ public:
      *      void
     */
     void playNextCard();
-
+    void playNextCard(Player& player);
 
     /*
      *  Check if the game ended:
@@ -60,7 +63,15 @@ public:
     //TODO: complete the Mtmchkin class.
 
 private:
-    //TODO: complete the Mtmchkin class.
+    const string  m_playerName;
+    int m_numOfCards;
+    const Card  *m_cardArray;
+    GameStatus m_gameStatus;
+    int m_CurrentCardIndex;
+    Player m_player;
+   const Card& getPulledCard();
+   void updateGameStatus();
+
 
 };
 
