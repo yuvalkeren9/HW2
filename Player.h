@@ -20,13 +20,6 @@ const int DEFAULT_FORCE = 5;
 /** a class that represents a player type. The class hold the player's name, his current level, current force, his max HP, current player's HP, and
  * the amount of coins he has */
 class Player {
-    string m_name;   //Character's name
-    int m_level;     //Player's level
-    int m_force;     //Player's force
-    int m_maxHP;     //Player's maximum HP allowed
-    int m_HP;        //Player's current HP
-    int m_coins;     //Player's amount of coins he currently holds
-
 
 public:
     /** basic constructors for the Player type. Notice the build constructor is not default, and has default values if not attributed by user.
@@ -64,6 +57,13 @@ public:
     /** decreases the player's amount of coins by the amount received as argument. If player doesn't have enough coins, nothing will happen
      * and function will return false. If succeeded, true will be returned.*/
     bool pay(const int price);
+private:
+    string m_name;   //Character's name
+    int m_level;     //Player's level
+    int m_force;     //Player's force
+    int m_maxHP;     //Player's maximum HP allowed
+    int m_HP;        //Player's current HP
+    int m_coins;     //Player's amount of coins he currently holds
 
 };
 #endif //HW2_PLAYER_H

@@ -18,7 +18,7 @@ Player::Player(const string& name, const int maxHP, const int force) :
     m_HP(maxHP),
     m_coins(0)
 {
-    if (maxHP < 0){
+    if (maxHP <= 0){
         this->m_maxHP = DEFAULT_MAX_HP;
         this->m_HP = DEFAULT_MAX_HP;
     }

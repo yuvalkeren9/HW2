@@ -5,14 +5,27 @@
 
 #include "Mtmchkin.h"
 #include <iostream>
+#include <cassert>
 
 using std::cout;
 using std::endl;
 using std::string;
 
 Mtmchkin::Mtmchkin(const string& playerName, const Card* cardsArray, int numOfCards) : m_playerName(playerName),
-m_cardArray(cardsArray), m_numOfCards(numOfCards),m_gameStatus(GameStatus::MidGame),m_CurrentCardIndex(0) , m_player(m_playerName){
+m_numOfCards(numOfCards),m_gameStatus(GameStatus::MidGame),m_CurrentCardIndex(0) , m_player(m_playerName)
+{
+     Card *tempCardArray = new Card[numOfCards];
+    assert(tempCardArray != NULL);
+    for (int i = 0; i < numOfCards; ++i){
+        tempCardArray[i]=cardsArray[i];
+    }
+     m_cardArray=tempCardArray;
 }
+
+Mtmchkin:: ~Mtmchkin(){
+    delete[] this->m_cardArray;
+}
+
 
 GameStatus Mtmchkin::getGameStatus() const{
     return this->m_gameStatus;
